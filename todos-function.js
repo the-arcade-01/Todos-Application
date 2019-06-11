@@ -63,13 +63,6 @@ const generateTodoDOM = function(todo) {
         saveTodos(todos)
         renderTodo(todos,filters)
     })
-    check.addEventListener('change',function(event){
-        if(event.target.checked){
-            todo.completed = true
-        }
-        saveTodos(todos)
-        renderTodo(todos,filters)
-    })
     divEl.appendChild(check)
     divEl.appendChild(p)
     divEl.appendChild(but)
