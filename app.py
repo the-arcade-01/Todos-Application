@@ -22,9 +22,19 @@ def index():
 		td = todos(t)
 		db.session.add(td)
 		db.session.commit()
+		#return redirect('/')
+	#db.session.query(todos).delete()
+	#db.session.commit()
 	
 	return render_template('index.html',values=todos.query.all())
 	
+@app.route('/delete/<int:_id>')
+def delete(_id):
+	dt = todos.query.filter_by(_id=_id).delete()
+	db.session.commit()
+
+	return redirect('/')
+
 if __name__=='__main__':
 	db.create_all()
 	app.run(debug=True)

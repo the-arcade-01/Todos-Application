@@ -6,20 +6,20 @@
 	<div class="container h-100 d-flex justify-content-center">
 		<p>
 			{% if values %}
+			<ul>
 				{%for v in values%}
-					<p>{{v.data}}</p>
+					<li>{{v.data}}<a href='delete/{{v._id}}'> Delete</a></li>
 				{%endfor%}
+			<ul>
 			{% else %}
 				<p>Create a todo</p>
 			{% endif %}
 		</p>
 	</div>
-	<form action='#' method="POST" class="form-group">
-		<div class="container h-100 d-flex justify-content-center">
-			<div class="jumbotron my-auto">
-		<p><input type="text" name="intodo"></p>
-		<p><input type="submit" value="Add Todo" class="btn btn-success"></p>
-			</div>
-		</div>
-	</form>
+	<div class="container h-100 d-flex justify-content-center">
+        <form action="/" method="POST" class="form-group">
+            <input type="text" name="intodo" id="content">
+            <input type="submit" value="Add Todo" class="btn btn-success">
+        </form>
+    </div>
 {%endblock%}
