@@ -41,6 +41,7 @@ def update(_id):
 	if request.method == "POST":
 		dt.data = request.form["uptodo"]
 		db.session.commit()
+		return redirect('/')
 	return render_template('update.html',v=dt)
 
 if __name__=='__main__':
