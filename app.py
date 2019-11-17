@@ -35,6 +35,14 @@ def delete(_id):
 
 	return redirect('/')
 
+@app.route('/update/<int:_id>',methods=["POST","GET"])
+def update(_id):
+	dt = todos.query.filter_by(_id=_id).first()
+	if request.method == "POST":
+		dt.data = request.form["uptodo"]
+		db.session.commit()
+	return render_template('update.html',v=dt)
+
 if __name__=='__main__':
 	db.create_all()
 	app.run(debug=True)

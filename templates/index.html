@@ -7,19 +7,25 @@
 		<p>
 			{% if values %}
 			<ul>
-				{%for v in values%}
-					<li>{{v.data}}<a href='delete/{{v._id}}'> Delete</a></li>
+				<p><h2>Todo-List</h2></p>
+				<p>{%for v in values%}
+					<h4><li>{{v.data}}
+					<a href='/delete/{{v._id}}'> Delete</a>
+					<a href='/update/{{v._id}}'> Update</a>
+					</li></h4>
 				{%endfor%}
+				</p>
 			<ul>
 			{% else %}
-				<p>Create a todo</p>
+				<p><h2>Create a todo</h2></p>
 			{% endif %}
 		</p>
 	</div>
 	<div class="container h-100 d-flex justify-content-center">
-        <form action="/" method="POST" class="form-group">
-            <input type="text" name="intodo" id="content">
-            <input type="submit" value="Add Todo" class="btn btn-success">
+        <form action="/" method="POST" class="form-inline">
+            <input type="text" name="intodo" class="form-control mr-sm-2">
+            <input type="submit" value="Add Todo" class="btn btn-outline-success my-2 my-sm-0">
         </form>
     </div>
+
 {%endblock%}
